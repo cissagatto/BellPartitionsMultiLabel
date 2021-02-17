@@ -64,18 +64,6 @@ directories <- function(){
     n_Results = length(folderResults)
   }
   
-  folderUtils = paste(FolderRoot, "/Utils", sep="")
-  if(dir.exists(folderUtils) == TRUE){
-    setwd(folderUtils)
-    dirUtils = dir(folderUtils)
-    n_Utils = length(folderUtils)
-  } else {
-    dir.create(folderUtils)
-    setwd(folderUtils)
-    dirUtils = dir(folderUtils)
-    n_Utils = length(dirUtils)
-  }
-  
   folderDatasets = paste(FolderRoot, "/Datasets", sep="")
   if(dir.exists(folderDatasets) == TRUE){
     setwd(folderDatasets)
@@ -116,21 +104,18 @@ directories <- function(){
   
   # return folders
   retorno$folderResults = folderResults
-  retorno$folderUtils = folderUtils
   retorno$folderDatasets = folderDatasets
   retorno$folderDO = folderDO
   retorno$folderNamesLabels = folderNamesLabels
   
   # return of folder contents
   retorno$dirResults = dirResults
-  retorno$dirUtils = dirUtils
   retorno$dirDatasets = dirDatasets
   retorno$dirDO = dirDO
   retorno$dirNamesLabels = dirNamesLabels
   
   # return of the number of objects inside the folder
   retorno$n_Results = n_Results
-  retorno$n_Utils = n_Utils
   retorno$n_Datasets = n_Datasets
   retorno$n_DO = n_DO
   retorno$n_NamesLabels = n_NamesLabels
@@ -180,18 +165,6 @@ directoriesDataset<- function(dataset_name){
     n_Dataset = length(dir_Dataset)
   }
   
-  folderReports = paste(folderDataset, "/Reports", sep="")
-  if(dir.exists(folderReports) == TRUE){
-    setwd(folderReports)
-    dir_Reports = dir(folderReports)
-    n_Reports = length(dir_Reports)
-  } else {
-    dir.create(folderReports)
-    setwd(folderReports)
-    dir_Reports = dir(folderReports)
-    n_Reports = length(dir_Reports)
-  }
-  
   folderResults = paste(folderDataset, "/Results", sep="")
   if(dir.exists(folderResults) == TRUE){
     setwd(folderResults)
@@ -206,17 +179,14 @@ directoriesDataset<- function(dataset_name){
   
   retorno$folderFolds = folderFolds
   retorno$folderDataset = folderDataset
-  retorno$folderReports = folderReports
   retorno$folderResults = folderResults
   
   retorno$dir_Folds = dir_Folds
   retorno$dir_Dataset = dir_Dataset
-  retorno$dir_Reports = dir_Reports
   retorno$dir_Results = dir_Results
   
   retorno$n_Folds = n_Folds
   retorno$n_Dataset = n_Dataset
-  retorno$n_Reports = n_Reports
   retorno$n_Results = n_Results
   
   return(retorno)
