@@ -165,29 +165,14 @@ directoriesDataset<- function(dataset_name){
     n_Dataset = length(dir_Dataset)
   }
   
-  folderResults = paste(folderDataset, "/Results", sep="")
-  if(dir.exists(folderResults) == TRUE){
-    setwd(folderResults)
-    dir_Results = dir(folderResults)
-    n_Results = length(dir_Results)
-  } else {
-    dir.create(folderResults)
-    setwd(folderResults)
-    dir_Results = dir(folderResults)
-    n_Results = length(dir_Results)
-  }
-  
   retorno$folderFolds = folderFolds
   retorno$folderDataset = folderDataset
-  retorno$folderResults = folderResults
   
   retorno$dir_Folds = dir_Folds
   retorno$dir_Dataset = dir_Dataset
-  retorno$dir_Results = dir_Results
   
   retorno$n_Folds = n_Folds
   retorno$n_Dataset = n_Dataset
-  retorno$n_Results = n_Results
   
   return(retorno)
   

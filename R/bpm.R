@@ -92,7 +92,7 @@ cat("\n")
 #res$partitions$groupsPerPartitions
 
 # C:\Users\elain\BellPartitionsMultiLabel\Results\emotions\Results
-Folder = paste(FolderRoot, "/Results/", dataset_name, "/Results/", sep="")
+Folder = paste(FolderRoot, "/Results/", dataset_name, sep="")
 setwd(Folder)
 save(timeBPM, file = paste(dataset_name, "-RunTimeFinal.rds", sep=""))
 save(res, file = paste(dataset_name, "-Results.rds", sep=""))

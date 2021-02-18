@@ -45,27 +45,27 @@ partition <- function(ds, dataset_name, namesLabels, Folder){
   retorno = list()
   
   # número de elementos (rótulos)
-  cat("\nNumber of Labels")
   num.labels = ds$Labels
+  cat("\nNumber of Labels: ", num.labels)
   
   # partições geradas por bell
-  cat("\nNumber of Partitions")
   num.partitions = bell(num.labels)
+  cat("\nNumber of Partitions: ", num.partitions)
   
   # partições geradas
-  cat("\nList Bell Partitions")
   BellPartitions = listParts(num.labels, do.set=FALSE)
-  
-  #print(namesLabels)
-  #namesLabels = c(namesLabels)
+  cat("\nList Bell Partitions: ")
+  print(BellPartitions)
   
   # ordenando o vetor de nomes de rótulos
-  cat("\nOrder Labels")
   ordem.labels = sort(namesLabels, index.return = TRUE)
   
   # criando um data frame que tem o número e o nome do rótulo
   rotulos = data.frame(ordem.labels)
   names(rotulos) = c("rotulos","indice")
+  
+  cat("\nNames Labels\n")
+  print(rotulos)
   
   # data frame para salvar as partições geradas
   part = c(0)
@@ -126,8 +126,8 @@ partition <- function(ds, dataset_name, namesLabels, Folder){
   
   # salvando as informações
   setwd(Folder)
-  write.csv(particoes3, "partitions.csv")
-  write.csv(groupsPerPartitions, "groupsPerPartitions.csv")
+  write.csv(particoes3, paste(dataset_name, "partitions.csv", sep=""))
+  write.csv(groupsPerPartitions, paste(dataset_name, "groupsPerPartitions.csv", sep=""))
   
   # return
   retorno$numPartitions = num.partitions

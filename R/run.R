@@ -79,7 +79,7 @@ cat("\nTotal of Datasets: ", n, "\n")
 # number_folds: number of folds for cross validation                                             # 
 # delete: if you want, or not, to delete all folders and files generated                         #
 ##################################################################################################
-execute <- function(n_dataset){
+execute <- function(number_dataset){
   
   cat("\n\n################################################################################################")
   cat("\n# START                                                                                          #")
@@ -90,23 +90,25 @@ execute <- function(n_dataset){
   retorno = list()
   
   cat("\n\n################################################################################################")
-  cat("\n# RUN: Get dataset information: ", n_dataset, "                                                  #")
-  ds = datasets[n_dataset,]
+  cat("\n# RUN: Get dataset information: ", number_dataset, "                                                  #")
+  ds = datasets[number_dataset,]
   names(ds)[1] = "Id"
   info = infoDataSet(ds)
   dataset_name = toString(ds$Name)
-  cat("\nDataset: ", dataset_name)  
+  cat("\nDataset: ", dataset_name)
+  ds$Labels
   
   # get the folders
   timeFolders = system.time(folders <- directoriesDataset(dataset_name)) 
   
   # get the names labels
+  setwd(diretorios$folderDO)
   arquivo = mldr(dataset_name)
   namesLabels = c(rownames(arquivo$labels))
   #cat("\n")
   #print(namesLabels)
   
-  timeComPart = system.time(resPart <- partition(ds, dataset_name, namesLabels, folders$folderResults))  
+  timeComPart = system.time(resPart <- partition(ds, dataset_name, namesLabels, folders$folderDataset))  
   
   retorno$partitions = resPart
   return(retorno)
