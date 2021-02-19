@@ -54,8 +54,8 @@ partition <- function(ds, dataset_name, namesLabels, Folder){
   
   # partições geradas
   BellPartitions = listParts(num.labels, do.set=FALSE)
-  cat("\nList Bell Partitions: ")
-  print(BellPartitions)
+  #cat("\nList Bell Partitions: ")
+  #print(BellPartitions)
   
   # ordenando o vetor de nomes de rótulos
   ordem.labels = sort(namesLabels, index.return = TRUE)
@@ -124,10 +124,14 @@ partition <- function(ds, dataset_name, namesLabels, Folder){
   
   groupsPerPartitions = groupsPerPartitions[-1,]
   
+  countPartitions = count(groupsPerPartitions, vars = groupsPerPartitions$totalGroups)
+  colnames(countPartitions) = c("groups", "total")
+  
   # salvando as informações
   setwd(Folder)
   write.csv(particoes3, paste(dataset_name, "partitions.csv", sep=""))
   write.csv(groupsPerPartitions, paste(dataset_name, "groupsPerPartitions.csv", sep=""))
+  write.csv(countPartitions, paste(dataset_name, "countPartitions.csv", sep=""))
   
   # return
   retorno$numPartitions = num.partitions
