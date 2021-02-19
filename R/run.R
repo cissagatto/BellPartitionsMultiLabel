@@ -77,7 +77,6 @@ cat("\nTotal of Datasets: ", n, "\n")
 # n_dataset: number of the dataset in the "datasets.csv"                                         #
 # number_cores: number of cores to paralell                                                      #
 # number_folds: number of folds for cross validation                                             # 
-# delete: if you want, or not, to delete all folders and files generated                         #
 ##################################################################################################
 execute <- function(number_dataset){
   
@@ -103,10 +102,14 @@ execute <- function(number_dataset){
   
   # get the names labels
   setwd(diretorios$folderDO)
-  arquivo = mldr(dataset_name)
-  namesLabels = c(rownames(arquivo$labels))
+  #arquivo = mldr(dataset_name)
+  #namesLabels = c(colnames(arquivo$dataset[,ds$LabelStart:ds$LabelEnd]))
   #cat("\n")
   #print(namesLabels)
+  
+  nome = paste(dataset_name, ".arff", sep="")
+  arquivo = data.frame(read.arff(nome))
+  namesLabels = c(colnames(arquivo[,ds$LabelStart:ds$LabelEnd]))
   
   timeComPart = system.time(resPart <- partition(ds, dataset_name, namesLabels, folders$folderDataset))  
   

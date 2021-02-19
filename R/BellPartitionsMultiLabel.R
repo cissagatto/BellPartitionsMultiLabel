@@ -129,9 +129,9 @@ partition <- function(ds, dataset_name, namesLabels, Folder){
   
   # salvando as informações
   setwd(Folder)
-  write.csv(particoes3, paste(dataset_name, "partitions.csv", sep=""))
-  write.csv(groupsPerPartitions, paste(dataset_name, "groupsPerPartitions.csv", sep=""))
-  write.csv(countPartitions, paste(dataset_name, "countPartitions.csv", sep=""))
+  write.csv(particoes3, paste(dataset_name, "-partitions.csv", sep=""))
+  write.csv(groupsPerPartitions, paste(dataset_name, "-groupsPerPartitions.csv", sep=""))
+  write.csv(countPartitions, paste(dataset_name, "-countPartitions.csv", sep=""))
   
   # return
   retorno$numPartitions = num.partitions
