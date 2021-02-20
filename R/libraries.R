@@ -38,22 +38,18 @@ FolderScripts = paste(FolderRoot, "/R/", sep="")
 setwd(FolderScripts)
 
 
-#library("googledrive") 
+##################################################################################################
+library("googledrive") 
 library("readr", quietly = TRUE) 
 library("foreign", quietly = TRUE) 
 library("stringr", quietly = TRUE) 
-library("mldr", quietly = TRUE) 
 library("plyr", quietly = TRUE) 
 library("dplyr", quietly = TRUE) 
 library("reshape2", quietly = TRUE) 
 library("AggregateR", quietly = TRUE) 
-library("utiml", quietly = TRUE)
-library("RWeka", quietly = TRUE) 
-library("rJava", quietly = TRUE) 
-library("lattice", quietly = TRUE)
 library("numbers", quietly = TRUE)
 library("partitions", quietly = TRUE)
-
+##################################################################################################
 
 
 ##################################################################################################
