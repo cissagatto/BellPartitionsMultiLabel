@@ -10,12 +10,6 @@ This source code consists of an R project for R Studio and the following R scrip
 4. run
 5. bpm
 
-## Multi-Label Datasets
-You can download the multi-label datasets at this link: https://cometa.ujaen.es/datasets/
-
-## Datasets Folder
-After downloading the dataset you want to use, place it in the */BellPartitionsMultiLabel/Datasets/Originals* folder. Don't forget that the .xml and .arff files of the respective dataset are needed.
-
 ## Folder Path
 Place a copy of this code in _"C:/Users/[username]/BellPartitionsMultiLabel"_ or _"/home/username/BellPartitionsMultiLabel"_. Our files are configured to obtain the paths of the folders from the root. You can change this in the code if you want.
 
