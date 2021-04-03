@@ -23,7 +23,7 @@ The _"Id"_ of the dataset is a mandatory parameter (_n_dataset_) in the command 
 # Run
 
 ```
-Rscript cvm.R [number_dataset]
+Rscript bpm.R [number_dataset]
 ```
 
 Example:
