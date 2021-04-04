@@ -20,6 +20,9 @@ _Id, Name, Domain, Labels, Instances, Attributes, Inputs, Labelsets, Single, Max
 
 The _"Id"_ of the dataset is a mandatory parameter (_n_dataset_) in the command line to run all code. The "LabelStart" and "LabelEnd" are used in a lot of internal functions. Please, make sure that this information is available before running the code.
 
+## Datasets
+You will need the originals datasets to run this code. Please, make sure that the folder Datasets contain the files arrf and xml.
+
 # Run
 
 ```
