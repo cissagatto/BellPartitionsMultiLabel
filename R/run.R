@@ -24,39 +24,35 @@
 ##################################################################################################
 # Configures the workspace according to the operating system                                     #
 ##################################################################################################
+
+##################################################################################################
+# Configures the workspace according to the operating system                                     #
+##################################################################################################
 sistema = c(Sys.info())
 FolderRoot = ""
+shm = 1
 if (sistema[1] == "Linux"){
+  shm = 1
   FolderRoot = paste("/home/", sistema[7], "/BellPartitionsMultiLabel", sep="")
-  setwd(FolderRoot)
 } else {
+  shm = 0
   FolderRoot = paste("C:/Users/", sistema[7], "/BellPartitionsMultiLabel", sep="")
-  setwd(FolderRoot)
 }
 setwd(FolderRoot)
 FolderScripts = paste(FolderRoot, "/R/", sep="")
-setwd(FolderScripts)
-
-
-##################################################################################################
-# Java Options Configuration                                                                     #
-##################################################################################################
-options(java.parameters = "-Xmx16g")
 
 
 ##################################################################################################
 # LOAD INTERNAL LIBRARIES                                                                        #
 ##################################################################################################
+cat("\nLoad Sources")
 
-cat("\nLoad Packages")
 setwd(FolderScripts)
 source("libraries.R")
 
-cat("\nLoad Source Utils")
 setwd(FolderScripts)
 source("utils.R")
 
-cat("\nLoad Source BellPartitionsMultiLabel")
 setwd(FolderScripts)
 source("BellPartitionsMultiLabel.R")
 
@@ -70,6 +66,7 @@ setwd(FolderRoot)
 datasets = data.frame(read.csv("datasets.csv"))
 n = nrow(datasets)
 cat("\nTotal of Datasets: ", n, "\n")
+
 
 
 ##################################################################################################
@@ -97,28 +94,22 @@ execute <- function(number_dataset){
   cat("\nDataset: ", dataset_name)
   ds$Labels
   
-  # get the folders
-  timeFolders = system.time(folders <- directoriesDataset(dataset_name)) 
-  
   # get the names labels
-  setwd(diretorios$folderDO)
-  #arquivo = mldr(dataset_name)
-  #namesLabels = c(colnames(arquivo$dataset[,ds$LabelStart:ds$LabelEnd]))
-  #cat("\n")
-  #print(namesLabels)
-  
+  setwd(diretorios$FolderDatasets)
   nome = paste(dataset_name, ".arff", sep="")
   arquivo = data.frame(read.arff(nome))
   namesLabels = c(colnames(arquivo[,ds$LabelStart:ds$LabelEnd]))
   
-  timeComPart = system.time(resPart <- partition(ds, dataset_name, namesLabels, folders$folderDataset))  
+  Folder = paste(diretorios$folderResults, "/", dataset_name, sep="")
+  
+  timeComPart = system.time(resPart <- partition(ds, dataset_name, namesLabels, Folder))  
   
   retorno$partitions = resPart
   return(retorno)
   
   gc()
   cat("\n##################################################################################################")
-  cat("\n# END                                                                                            #")
+  cat("\n# RUN: END                                                                                       #")
   cat("\n##################################################################################################")
   cat("\n\n\n\n") 
 }

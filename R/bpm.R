@@ -26,16 +26,22 @@
 ##################################################################################################
 sistema = c(Sys.info())
 FolderRoot = ""
+shm = 1
 if (sistema[1] == "Linux"){
+  shm = 1
   FolderRoot = paste("/home/", sistema[7], "/BellPartitionsMultiLabel", sep="")
-  setwd(FolderRoot)
 } else {
+  shm = 0
   FolderRoot = paste("C:/Users/", sistema[7], "/BellPartitionsMultiLabel", sep="")
-  setwd(FolderRoot)
 }
 setwd(FolderRoot)
 FolderScripts = paste(FolderRoot, "/R/", sep="")
-setwd(FolderScripts)
+
+##################################################################################################
+# OPTIONS
+##################################################################################################
+options(java.parameters = "-Xmx32g")
+options(show.error.messages = TRUE)
 
 
 ##################################################################################################
@@ -45,12 +51,21 @@ cat("\nArgs Command Line\n")
 args <- commandArgs(TRUE)
 cat(args, sep = "\n")
 
-
+  
 ##################################################################################################
 # LOAD MAIN.R                                                                                     #
 ##################################################################################################
 cat("\nLoad Scripts\n")
-FolderScripts = paste(FolderRoot, "/R/", sep="")
+
+setwd(FolderScripts)
+source("libraries.R") 
+
+setwd(FolderScripts)
+source("utils.R") 
+
+setwd(FolderScripts)
+source("BellPartitionsMultiLabel.R") 
+
 setwd(FolderScripts)
 source("run.R") 
 
@@ -72,30 +87,43 @@ n = nrow(datasets)
 
 
 ##################################################################################################
-# Get the number of folds                                                                        #
+# DATASET NUMBER
 ##################################################################################################
 number_dataset <- as.numeric(args[1])
 
 
 ##################################################################################################
-# 
+# SPECIFIC DATASET
 ##################################################################################################
-
 ds = datasets[number_dataset,]
 dataset_name <- toString(ds$Name) 
 cat("\nDataset: ", dataset_name)
 
+
+##################################################################################################
+# EXECUTE
+##################################################################################################
 cat("\nCompute Bell Partitions for MultiLabel Classification")
 timeBPM = system.time(res <- execute(number_dataset))
 cat("\n")
 
-#res$partitions$groupsPerPartitions
 
-# C:\Users\elain\BellPartitionsMultiLabel\Results\emotions\Results
+##################################################################################################
+# SAVE RESULTS
+##################################################################################################
 Folder = paste(FolderRoot, "/Results/", dataset_name, sep="")
 setwd(Folder)
 save(timeBPM, file = paste(dataset_name, "-RunTimeFinal.rds", sep=""))
 save(res, file = paste(dataset_name, "-Results.rds", sep=""))
+
+
+##################################################################################################
+# compress the results for later transfer to the dataset folder                                  #
+##################################################################################################
+cat("\nCompress results\n")
+str3 = paste("tar -zcvf ", dataset_name, "-results.tar.gz ", Folder, sep="")
+print(system(str3))
+
 
 
 ##################################################################################################

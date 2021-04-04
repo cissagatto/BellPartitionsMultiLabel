@@ -24,18 +24,22 @@
 ##################################################################################################
 # Configures the workspace according to the operating system                                     #
 ##################################################################################################
+
+##################################################################################################
+# Configures the workspace according to the operating system                                     #
+##################################################################################################
 sistema = c(Sys.info())
 FolderRoot = ""
+shm = 1
 if (sistema[1] == "Linux"){
+  shm = 1
   FolderRoot = paste("/home/", sistema[7], "/BellPartitionsMultiLabel", sep="")
-  setwd(FolderRoot)
 } else {
+  shm = 0
   FolderRoot = paste("C:/Users/", sistema[7], "/BellPartitionsMultiLabel", sep="")
-  setwd(FolderRoot)
 }
 setwd(FolderRoot)
 FolderScripts = paste(FolderRoot, "/R/", sep="")
-setwd(FolderScripts)
 
 
 ##################################################################################################
@@ -52,130 +56,50 @@ directories <- function(){
   
   retorno = list()
   
+  #if(shm==1){
+  #  folderResults = "/dev/shm/Results"
+  #} else {
+  #  
+  #}
+  
   folderResults = paste(FolderRoot, "/Results", sep="")
   if(dir.exists(folderResults) == TRUE){
     setwd(folderResults)
     dirResults = dir(folderResults)
-    n_Results = length(folderResults)
+    nResults = length(folderResults)
   } else {
     dir.create(folderResults)
     setwd(folderResults)
     dirResults = dir(folderResults)
-    n_Results = length(folderResults)
+    nResults = length(folderResults)
   }
   
-  folderDatasets = paste(FolderRoot, "/Datasets", sep="")
-  if(dir.exists(folderDatasets) == TRUE){
-    setwd(folderDatasets)
-    dirDatasets = dir(folderDatasets)
-    n_Datasets = length(dirDatasets)
+  FolderDatasets = paste(FolderRoot, "/Datasets", sep="")
+  if(dir.exists(FolderDatasets) == TRUE){
+    setwd(FolderDatasets)
+    dirDatasets = dir(FolderDatasets)
+    nDatasets = length(dirDatasets)
   } else {
-    dir.create(folderDatasets)
-    setwd(folderDatasets)
-    dirDatasets = dir(folderDatasets)
-    n_Datasets = length(dirDatasets)
+    dir.create(FolderDatasets)
+    setwd(FolderDatasets)
+    dirDatasets = dir(FolderDatasets)
+    nDatasets = length(dirDatasets)
   }
-  
-  folderDO = paste(folderDatasets, "/Originals", sep="")
-  if(dir.exists(folderDO) == TRUE){
-    setwd(folderDO)
-    dirDO = dir(folderDO)
-    n_DO = length(dirDO)
-  } else {
-    dir.create(folderDO)
-    setwd(folderDO)
-    dirDO = dir(folderDO)
-    n_DO = length(dirDO)
-  }
-  
-  
-  folderNamesLabels = paste(folderDatasets, "/NamesLabels", sep="")
-  if(dir.exists(folderNamesLabels) == TRUE){
-    setwd(folderNamesLabels)
-    dirNamesLabels = dir(folderNamesLabels)
-    n_NamesLabels = length(dirNamesLabels)
-  } else {
-    dir.create(folderNamesLabels)
-    setwd(folderNamesLabels)
-    dirNamesLabels = dir(folderNamesLabels)
-    n_NamesLabels = length(dirNamesLabels)
-  }
-
   
   # return folders
   retorno$folderResults = folderResults
-  retorno$folderDatasets = folderDatasets
-  retorno$folderDO = folderDO
-  retorno$folderNamesLabels = folderNamesLabels
+  retorno$FolderDatasets = FolderDatasets
   
   # return of folder contents
   retorno$dirResults = dirResults
   retorno$dirDatasets = dirDatasets
-  retorno$dirDO = dirDO
-  retorno$dirNamesLabels = dirNamesLabels
   
   # return of the number of objects inside the folder
-  retorno$n_Results = n_Results
-  retorno$n_Datasets = n_Datasets
-  retorno$n_DO = n_DO
-  retorno$n_NamesLabels = n_NamesLabels
+  retorno$nResults = nResults
+  retorno$nDatasets = nDatasets
   
   return(retorno)
   gc()
-}
-
-
-
-##################################################################################################
-# FUNCTION CREATING FOLDER PRINCIPALS                                                            #
-#   Objective                                                                                    #
-#       Creates the specific folders for the specific dataset                                    #
-#   Parameters                                                                                   #
-#       dataset_name: dataset name. It is used to create the folders.                            #
-#   Return:                                                                                      #
-#      All path directories                                                                      #
-##################################################################################################
-directoriesDataset<- function(dataset_name){
-  
-  diretorios = directories()
-  
-  retorno = list()
-  
-  folderFolds = paste(diretorios$folderFolds, "/", dataset_name, sep="")
-  if(dir.exists(folderFolds) == TRUE){
-    setwd(folderFolds)
-    dir_Folds = dir(folderFolds)
-    n_Folds = length(dir_Folds)
-  } else {
-    dir.create(folderFolds)
-    setwd(folderFolds)
-    dir_Folds = dir(folderFolds)
-    n_Folds = length(dir_Folds)
-  }
-  
-  folderDataset = paste(diretorios$folderResults, "/", dataset_name, sep="")
-  if(dir.exists(folderDataset) == TRUE){
-    setwd(folderDataset)
-    dir_Dataset = dir(folderDataset)
-    n_Dataset = length(dir_Dataset)
-  } else {
-    dir.create(folderDataset)
-    setwd(folderDataset)
-    dir_Dataset = dir(folderDataset)
-    n_Dataset = length(dir_Dataset)
-  }
-  
-  retorno$folderFolds = folderFolds
-  retorno$folderDataset = folderDataset
-  
-  retorno$dir_Folds = dir_Folds
-  retorno$dir_Dataset = dir_Dataset
-  
-  retorno$n_Folds = n_Folds
-  retorno$n_Dataset = n_Dataset
-  
-  return(retorno)
-  
 }
 
 
