@@ -30,16 +30,15 @@
 ##################################################################################################
 sistema = c(Sys.info())
 FolderRoot = ""
-shm = 1
 if (sistema[1] == "Linux"){
-  shm = 1
   FolderRoot = paste("/home/", sistema[7], "/BellPartitionsMultiLabel", sep="")
 } else {
-  shm = 0
   FolderRoot = paste("C:/Users/", sistema[7], "/BellPartitionsMultiLabel", sep="")
 }
 setwd(FolderRoot)
 FolderScripts = paste(FolderRoot, "/R/", sep="")
+
+
 
 ##################################################################################################
 #
@@ -47,6 +46,8 @@ FolderScripts = paste(FolderRoot, "/R/", sep="")
 partition <- function(ds, dataset_name, namesLabels, Folder){
   
   retorno = list()
+  
+  cat("\n", Folder , "\n")
   
   # número de elementos (rótulos)
   num.labels = ds$Labels
@@ -133,6 +134,7 @@ partition <- function(ds, dataset_name, namesLabels, Folder){
   
   # salvando as informações
   setwd(Folder)
+  cat("\n", Folder)
   write.csv(particoes3, paste(dataset_name, "-partitions.csv", sep=""))
   write.csv(groupsPerPartitions, paste(dataset_name, "-groupsPerPartitions.csv", sep=""))
   write.csv(countPartitions, paste(dataset_name, "-countPartitions.csv", sep=""))
@@ -147,9 +149,10 @@ partition <- function(ds, dataset_name, namesLabels, Folder){
   retorno$groupsPerPartitions = groupsPerPartitions
   return(retorno)
   
-  setwd(Folder)
-  write_rds(retorno, "results.rds")
-  save(retorno, "results.RData")
+  #setwd(Folder)
+  #print(Folder)
+  #write_rds(retorno, "results.rds")
+  #save(retorno, "results.RData")
   
   gc()
   

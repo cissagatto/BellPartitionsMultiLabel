@@ -28,12 +28,9 @@
 ##################################################################################################
 sistema = c(Sys.info())
 FolderRoot = ""
-shm = 1
 if (sistema[1] == "Linux"){
-  shm = 1
   FolderRoot = paste("/home/", sistema[7], "/BellPartitionsMultiLabel", sep="")
 } else {
-  shm = 0
   FolderRoot = paste("C:/Users/", sistema[7], "/BellPartitionsMultiLabel", sep="")
 }
 setwd(FolderRoot)

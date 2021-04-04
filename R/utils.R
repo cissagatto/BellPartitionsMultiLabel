@@ -30,12 +30,9 @@
 ##################################################################################################
 sistema = c(Sys.info())
 FolderRoot = ""
-shm = 1
 if (sistema[1] == "Linux"){
-  shm = 1
   FolderRoot = paste("/home/", sistema[7], "/BellPartitionsMultiLabel", sep="")
 } else {
-  shm = 0
   FolderRoot = paste("C:/Users/", sistema[7], "/BellPartitionsMultiLabel", sep="")
 }
 setwd(FolderRoot)
@@ -56,12 +53,6 @@ directories <- function(){
   
   retorno = list()
   
-  #if(shm==1){
-  #  folderResults = "/dev/shm/Results"
-  #} else {
-  #  
-  #}
-  
   folderResults = paste(FolderRoot, "/Results", sep="")
   if(dir.exists(folderResults) == TRUE){
     setwd(folderResults)
@@ -72,6 +63,18 @@ directories <- function(){
     setwd(folderResults)
     dirResults = dir(folderResults)
     nResults = length(folderResults)
+  }
+  
+  FolderDatasets = paste(FolderRoot, "/Datasets", sep="")
+  if(dir.exists(FolderDatasets) == TRUE){
+    setwd(FolderDatasets)
+    dirDatasets = dir(FolderDatasets)
+    nDatasets = length(dirDatasets)
+  } else {
+    dir.create(FolderDatasets)
+    setwd(FolderDatasets)
+    dirDatasets = dir(FolderDatasets)
+    nDatasets = length(dirDatasets)
   }
   
   FolderDatasets = paste(FolderRoot, "/Datasets", sep="")

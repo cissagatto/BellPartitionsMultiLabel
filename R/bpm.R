@@ -26,16 +26,14 @@
 ##################################################################################################
 sistema = c(Sys.info())
 FolderRoot = ""
-shm = 1
 if (sistema[1] == "Linux"){
-  shm = 1
   FolderRoot = paste("/home/", sistema[7], "/BellPartitionsMultiLabel", sep="")
 } else {
-  shm = 0
   FolderRoot = paste("C:/Users/", sistema[7], "/BellPartitionsMultiLabel", sep="")
 }
 setwd(FolderRoot)
 FolderScripts = paste(FolderRoot, "/R/", sep="")
+
 
 ##################################################################################################
 # OPTIONS
@@ -112,6 +110,7 @@ cat("\n")
 # SAVE RESULTS
 ##################################################################################################
 Folder = paste(FolderRoot, "/Results/", dataset_name, sep="")
+print(Folder)
 setwd(Folder)
 save(timeBPM, file = paste(dataset_name, "-RunTimeFinal.rds", sep=""))
 save(res, file = paste(dataset_name, "-Results.rds", sep=""))
@@ -123,7 +122,6 @@ save(res, file = paste(dataset_name, "-Results.rds", sep=""))
 cat("\nCompress results\n")
 str3 = paste("tar -zcvf ", dataset_name, "-results.tar.gz ", Folder, sep="")
 print(system(str3))
-
 
 
 ##################################################################################################
