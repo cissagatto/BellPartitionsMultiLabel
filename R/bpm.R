@@ -124,6 +124,14 @@ str3 = paste("tar -zcvf ", dataset_name, "-results.tar.gz ", Folder, sep="")
 print(system(str3))
 
 
+########################################################################################################################
+cat("\n Copy to google drive")
+origem = paste(Folder, "/", dataset_name, "-results.tar.gz", sep="")
+destino = paste("cloud:elaine/BellPartitionsMultiLabel/Results/", dataset_name, sep="")
+comando = paste("rclone copy ", origem, " ", destino, sep="")
+system(comando)
+
+
 ##################################################################################################
 # Please, any errors, contact us: elainececiliagatto@gmail.com                                   #
 # Thank you very much!                                                                           #
