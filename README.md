@@ -11,17 +11,17 @@ This source code consists of an R project for R Studio and the following R scrip
 5. bpm
 
 ## Folder Path
-Place a copy of this code in _"C:/Users/[username]/BellPartitionsMultiLabel"_ or _"/home/username/BellPartitionsMultiLabel"_. Our files are configured to obtain the paths of the folders from the root. You can change this in the code if you want.
+Place a copy of this code in _"C:/Users/[username]/BellPartitionsMultiLabel"_ or _"/home/username/BellPartitionsMultiLabel"_. You can change the path in the code if you want.
 
 ## File "datasets.csv"
-A file called "datasets.csv" must be in the *datasets* folder. This file is used to read information about the datasets and they are used in the code. All 74 datasets available in cometa are in this file. If you want to use another dataset, please, add the following information about the dataset in the file:
+A file called "datasets.csv" must be in the *datasets* and *root* folder of the project. This file is used to read information about the datasets. These information are used in the code. All 74 datasets available in cometa are in this file. If you want to use another dataset, please, add the following information about the dataset in the file:
 
 _Id, Name, Domain, Labels, Instances, Attributes, Inputs, Labelsets, Single, Max freq, Card, Dens, MeanIR, Scumble, TCS, AttStart, AttEnd, LabelStart, LabelEnd_
 
 The _"Id"_ of the dataset is a mandatory parameter (_n_dataset_) in the command line to run all code. The "LabelStart" and "LabelEnd" are used in a lot of internal functions. Please, make sure that this information is available before running the code.
 
 ## Datasets
-You will need the originals datasets to run this code. Please, make sure that the folder Datasets contain the files arrf and xml.
+You will need the originals datasets to run this code. Please, make sure that the folder *datasets* contain the files arrf and xml from cometa.
 
 # Run
 
