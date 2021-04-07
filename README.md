@@ -1,5 +1,5 @@
 # BellPartitionsMultiLabel
-This code generates partitions based on bell number for multilabel classification. This code is part of my doctoral research.
+This code generates partitions based on bell numbers for multilabel classification. This code is part of my doctoral research.
 
 ## Scripts
 This source code consists of an R project for R Studio and the following R scripts:
