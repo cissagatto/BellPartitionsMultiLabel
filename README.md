@@ -1,5 +1,5 @@
 # BellPartitionsMultiLabel
-This code generates partitions based on bell numbers for multilabel classification. This code is part of my doctoral research.
+This code generates partitions based on bell numbers for multilabel classification. This code is part of my doctoral research. Important, this code will execute on Windows and Linux. When executing in Linux, this code uses the folder "/dev/shm" to reduce I/O process.
 
 ## Scripts
 This source code consists of an R project for R Studio and the following R scripts:
@@ -34,6 +34,12 @@ Example:
 ```
 Rscript bpm.R 1
 ```
+
+## Software Requirements
+This code was develop in R Studio Version 1.3.959 © 2009-2020, PBC, "Middlemist Red" (3a09be39, 2020-05-18) for Windows. The R language version was 4.0.1 (2020-06-06) with x86_64-w64-mingw32 platform. Please make sure all the dependencies are installed (verify libraries.R). This code does not provide an installation of libraries.
+
+## Hardware Requirements
+This code was tested in a laptop with 16,0GB RAM and a processor Intel (R) Core (TM) i7-5500U CPU @ 2.40 GHz for datasets with less than 8 labels in label space. With you want to test datasets with more than 8 labels, it is recommended that you use a cluster with high available RAM.
 
 ## Acknowledgment
 This study is financed in part by the Coordenação de Aperfeiçoamento de Pessoal de Nível Superior - Brasil (CAPES) - Finance Code 001
