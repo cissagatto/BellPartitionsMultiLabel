@@ -35,6 +35,26 @@ Example:
 Rscript bpm.R 1
 ```
 
+## Results
+This code results in a following files:
+
+[dataset_name]-countPartitions.csv
+
+[dataset_name]-groupsPerPartitions.csv
+
+[dataset_name]-partitions.csv
+
+Returns the label distributions in each partition. Example:
+
+---------------------------------------
+|id | part | group | id_labels | labels
+---------------------------------------
+| 1 | 1 | 1 | 1 | "Label1" |
+| 2 | 1 | 1 | 2 | "Label2" |
+| 3 | 1 | 1 | 3 | "Label3" |
+| 4 | 1 | 1 | 4 | "Label4" |
+---------------------------------------
+
 ## Software Requirements
 This code was develop in R Studio Version 1.3.959 © 2009-2020, PBC, "Middlemist Red" (3a09be39, 2020-05-18) for Windows. The R language version was 4.0.1 (2020-06-06) with x86_64-w64-mingw32 platform. Please make sure all the dependencies are installed (verify libraries.R). This code does not provide an installation of R packages.
 
