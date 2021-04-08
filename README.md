@@ -38,7 +38,7 @@ Rscript bpm.R 1
 ## Results
 Three files are generated as result:
 
-**[dataset_name]-countPartitions.csv**: Returns the frequency of groups. For exxample: group 1 appears only 1 time while group 3 appears 6 times.
+**[dataset_name]-countPartitions.csv**: Returns the frequency of groups. For example group 1 appears only 1 time while group 3 appears 6 times.
 | groups | total | 
 | ------ | ----- | 
 |   1    |   1   | 
@@ -46,7 +46,7 @@ Three files are generated as result:
 |   3    |   6   | 
 |   4    |   1   | 
 
-**[dataset_name]-groupsPerPartitions.csv**: Returns the number of groups for each partitions. For example: partitions 4 has 2 groups.
+**[dataset_name]-groupsPerPartitions.csv**: Returns the number of groups for each partition. For example partition 4 has 2 groups.
 | part | totalGroups | 
 | ---- | ----------- | 
 |   1  |      1      | 
