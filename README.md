@@ -36,9 +36,9 @@ Rscript bpm.R 1
 ```
 
 ## Results
-This code results in a following files:
+Three files are generated as result:
 
-**[dataset_name]-countPartitions.csv**: Returns the frequency of groups
+**[dataset_name]-countPartitions.csv**: Returns the frequency of groups. For exxample: group 1 appears only 1 time while group 3 appears 6 times.
 | groups | total | 
 | ------ | ----- | 
 |   1    |   1   | 
@@ -46,7 +46,7 @@ This code results in a following files:
 |   3    |   6   | 
 |   4    |   1   | 
 
-**[dataset_name]-groupsPerPartitions.csv**: Returns the number of gruoups for each partitions. Example
+**[dataset_name]-groupsPerPartitions.csv**: Returns the number of groups for each partitions. For example: partitions 4 has 2 groups.
 | part | totalGroups | 
 | ---- | ----------- | 
 |   1  |      1      | 
@@ -54,13 +54,13 @@ This code results in a following files:
 |   3  |      2      |  
 |   4  |      2      |  
 
-**[dataset_name]-partitions.csv**: Returns the label distributions in each partition. Example:
+**[dataset_name]-partitions.csv**: Returns the label distributions in each partition. For example: in partition 12 the Label1 and Label2 are located in group 1 while Label3 and Label4 are in group 2.
 | id | part | group | id_labels |  labels  |
 | -- | ---- | ----- | --------- | -------- |
-|  1 |   1  |   1   |     1     | "Label1" |
-|  2 |   1  |   1   |     2     | "Label2" |
-|  3 |   1  |   1   |     3     | "Label3" |
-|  4 |   1  |   1   |     4     | "Label4" |
+|  1 |  12  |   1   |     1     | "Label1" |
+|  2 |  12  |   1   |     2     | "Label2" |
+|  3 |  12  |   2   |     3     | "Label3" |
+|  4 |  12  |   2   |     4     | "Label4" |
 
 
 ## Software Requirements
