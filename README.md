@@ -46,7 +46,7 @@ Three files are generated as result:
 |   3    |   6   | 
 |   4    |   1   | 
 
-**[dataset_name]-groupsPerPartitions.csv**: Returns the number of groups for each partition. For example partition 4 has 2 groups.
+**[dataset_name]-groupsPerPartitions.csv**: Returns the number of groups for each partition. For example partition 2, 3 and 4 has 2 groups while partition 1 only one.
 | part | totalGroups | 
 | ---- | ----------- | 
 |   1  |      1      | 
