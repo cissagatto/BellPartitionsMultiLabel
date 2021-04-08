@@ -38,15 +38,23 @@ Rscript bpm.R 1
 ## Results
 This code results in a following files:
 
-[dataset_name]-countPartitions.csv
+**[dataset_name]-countPartitions.csv**: Returns the frequency of groups
+| groups | total | 
+| ------ | ----- | 
+|   1    |   1   | 
+|   2    |   7   | 
+|   3    |   6   | 
+|   4    |   1   | 
 
-[dataset_name]-groupsPerPartitions.csv
+**[dataset_name]-groupsPerPartitions.csv**: Returns the number of gruoups for each partitions. Example
+| part | totalGroups | 
+| ---- | ----------- | 
+|   1  |      1      | 
+|   2  |      2      |  
+|   3  |      2      |  
+|   4  |      2      |  
 
-[dataset_name]-partitions.csv
-
-Returns the label distributions in each partition. Example:
-
-
+**[dataset_name]-partitions.csv**: Returns the label distributions in each partition. Example:
 | id | part | group | id_labels |  labels  |
 | -- | ---- | ----- | --------- | -------- |
 |  1 |   1  |   1   |     1     | "Label1" |
