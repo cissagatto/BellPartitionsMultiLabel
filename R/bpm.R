@@ -125,11 +125,17 @@ print(system(str3))
 
 
 ########################################################################################################################
-cat("\n Copy to google drive")
-origem = paste(Folder, "/", dataset_name, "-results.tar.gz", sep="")
-destino = paste("cloud:elaine/BellPartitionsMultiLabel/Results/", dataset_name, sep="")
-comando = paste("rclone copy ", origem, " ", destino, sep="")
-system(comando)
+# cat("\n Copy to google drive")
+# origem = paste(Folder, "/", dataset_name, "-results.tar.gz", sep="")
+# destino = paste("cloud:elaine/BellPartitionsMultiLabel/Results/", dataset_name, sep="")
+# comando = paste("rclone copy ", origem, " ", destino, sep="")
+# cat("\n", comando, "\n") 
+# a = print(system(comando))
+# a = as.numeric(a)
+# if(a != 0) {
+# stop("Erro RCLONE")
+# quit("yes")
+# }
 
 
 ##################################################################################################
