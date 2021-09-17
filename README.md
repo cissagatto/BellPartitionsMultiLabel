@@ -1,5 +1,5 @@
 # BellPartitionsMultiLabel
-This code generates partitions based on bell numbers for multilabel classification. This code is part of my doctoral research. Important, this code will execute on Windows and Linux. When executing in Linux, this code uses the folder "/dev/shm" to reduce I/O process.
+This code generates partitions based on bell numbers for multilabel classification. This code is part of my doctoral research. Important: when executing in Linux, this code uses the folder "/dev/shm" to reduce I/O process.
 
 ## Scripts
 This source code consists of an R project for R Studio and the following R scripts:
