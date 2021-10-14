@@ -1,6 +1,9 @@
 # BellPartitionsMultiLabel
 This code generates partitions based on bell numbers for multilabel classification. This code is part of my doctoral research. Important: when executing in Linux, this code uses the folder "/dev/shm" to reduce I/O process.
 
+## How to cite 
+@misc{Gatto2021, author = {Gatto, E. C.}, title = {BellPartitionsMultiLabel}, year = {2021}, publisher = {GitHub}, journal = {GitHub repository}, howpublished = {\url{https://github.com/cissagatto/BellPartitionsMultiLabel/}}}
+
 ## Scripts
 This source code consists of an R project for R Studio and the following R scripts:
 
