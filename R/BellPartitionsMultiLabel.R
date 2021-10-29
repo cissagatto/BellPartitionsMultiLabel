@@ -57,10 +57,24 @@ partition <- function(ds, dataset_name, namesLabels, Folder){
   num.partitions = bell(num.labels)
   cat("\nNumber of Partitions: ", num.partitions)
   
+  bell(0)
+  bell(1)
+  bell(2)
+  bell(3)
+  bell(4)
+  bell(5)
+  bell(6)
+  bell(7)
+  bell(8)
+  bell(9)
+  bell(10)
+  bell(18)
+  
+  
   # partições geradas
   BellPartitions = listParts(num.labels, do.set=FALSE)
   #cat("\nList Bell Partitions: ")
-  #print(BellPartitions)
+  print(BellPartitions)
   
   # ordenando o vetor de nomes de rótulos
   ordem.labels = sort(namesLabels, index.return = TRUE)

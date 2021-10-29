@@ -49,7 +49,7 @@ FolderScripts = paste(FolderRoot, "/R/", sep="")
 #   Return:                                                                                      #
 #      All path directories                                                                      #
 ##################################################################################################
-directories <- function(){
+directories <- function(folderResults){
   
   retorno = list()
   

@@ -72,29 +72,26 @@ cat("\nTotal of Datasets: ", n, "\n")
 # number_cores: number of cores to paralell                                                      #
 # number_folds: number of folds for cross validation                                             # 
 ##################################################################################################
-execute <- function(number_dataset){
+execute <- function(ds, number_dataset, folderResults){
   
   cat("\n\n################################################################################################")
   cat("\n# START                                                                                          #")
   cat("\n##################################################################################################\n\n") 
   
-  diretorios = directories()
+  diretorios = directories(folderResults)
   
   retorno = list()
   
   cat("\n\n################################################################################################")
   cat("\n# RUN: Get dataset information: ", number_dataset, "                                                  #")
-  ds = datasets[number_dataset,]
-  names(ds)[1] = "Id"
-  info = infoDataSet(ds)
-  dataset_name = toString(ds$Name)
+  dataset_name = ds$Name
   cat("\nDataset: ", dataset_name)
-  ds$Labels
   
   # get the names labels
-  setwd(diretorios$FolderDatasets)
+  folder = paste(diretorios$FolderDatasets, "/", dataset_name, sep="")
+  setwd(folder)
   nome = paste(dataset_name, ".arff", sep="")
-  arquivo = data.frame(read.arff(nome))
+  arquivo = data.frame(foreign::read.arff(nome))
   namesLabels = c(colnames(arquivo[,ds$LabelStart:ds$LabelEnd]))
   
   FolderR = paste(diretorios$folderResults, "/", dataset_name, sep="")
