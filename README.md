@@ -65,13 +65,13 @@ Important: we used the CLUS classifier in this experiment. This implies generati
 # Run
 
 ```
-Rscript bpm.R [number_dataset]
+Rscript bpm.R [number_dataset] [folderResult]
 ```
 
 Example:
 
 ```
-Rscript bpm.R 1
+Rscript bpm.R 1 "/dev/shm/res"
 ```
 
 ## Results
