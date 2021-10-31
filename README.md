@@ -65,7 +65,7 @@ Important: we used the CLUS classifier in this experiment. This implies generati
 # Run
 
 ```
-Rscript bpm.R [number_dataset] [folderResult]
+Rscript bpm.R [number_dataset] [tem_folder]
 ```
 
 Example:
