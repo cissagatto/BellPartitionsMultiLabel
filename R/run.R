@@ -28,42 +28,8 @@
 ##################################################################################################
 # Configures the workspace according to the operating system                                     #
 ##################################################################################################
-sistema = c(Sys.info())
-FolderRoot = ""
-if (sistema[1] == "Linux"){
-  FolderRoot = paste("/home/", sistema[7], "/BellPartitionsMultiLabel", sep="")
-} else {
-  FolderRoot = paste("C:/Users/", sistema[7], "/BellPartitionsMultiLabel", sep="")
-}
-setwd(FolderRoot)
-FolderScripts = paste(FolderRoot, "/R/", sep="")
-
-
-##################################################################################################
-# LOAD INTERNAL LIBRARIES                                                                        #
-##################################################################################################
-cat("\nLoad Sources")
-
-setwd(FolderScripts)
-source("libraries.R")
-
-setwd(FolderScripts)
-source("utils.R")
-
-setwd(FolderScripts)
-source("BellPartitionsMultiLabel.R")
-
-
-##################################################################################################
-# Opens the file "datasets.csv"                                                                  #
-##################################################################################################
-cat("\nOpen Dataset Infomation File\n")
-diretorios = directories()
-setwd(FolderRoot)
-datasets = data.frame(read.csv("datasets.csv"))
-n = nrow(datasets)
-cat("\nTotal of Datasets: ", n, "\n")
-
+FolderRoot = "~/BellPartitionsMultiLabel"
+FolderScripts = paste(FolderRoot, "/R", sep="")
 
 
 ##################################################################################################
@@ -90,7 +56,7 @@ execute <- function(ds, number_dataset, folderResults){
   # get the names labels
   folder = paste(diretorios$FolderDatasets, "/", dataset_name, sep="")
   setwd(folder)
-  nome = paste(dataset_name, ".arff", sep="")
+  nome = paste(folder, "/", dataset_name, ".arff", sep="")
   arquivo = data.frame(foreign::read.arff(nome))
   namesLabels = c(colnames(arquivo[,ds$LabelStart:ds$LabelEnd]))
   

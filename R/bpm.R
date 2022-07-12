@@ -27,15 +27,9 @@ rm(list=ls())
 ##################################################################################################
 # Configures the workspace according to the operating system                                     #
 ##################################################################################################
-sistema = c(Sys.info())
-FolderRoot = ""
-if (sistema[1] == "Linux"){
-  FolderRoot = paste("/home/", sistema[7], "/BellPartitionsMultiLabel", sep="")
-} else {
-  FolderRoot = paste("C:/Users/", sistema[7], "/BellPartitionsMultiLabel", sep="")
-}
-setwd(FolderRoot)
-FolderScripts = paste(FolderRoot, "/R/", sep="")
+getwd()
+FolderRoot = "~/BellPartitionsMultiLabel"
+FolderScripts = paste(FolderRoot, "/R", sep="")
 
   
 ##################################################################################################
@@ -59,7 +53,7 @@ source("run.R")
 ##################################################################################################
 # Options Configuration                                                                          #
 ##################################################################################################
-options(java.parameters = "-Xmx32g")
+options(java.parameters = "-Xmx64g")
 options(show.error.messages = TRUE)
 options(scipen=30)
 
@@ -68,7 +62,7 @@ options(scipen=30)
 # Read the dataset file with the information for each dataset                                    #
 ##################################################################################################
 setwd(FolderRoot)
-datasets <- data.frame(read.csv("datasets.csv"))
+datasets <- data.frame(read.csv("datasets-original.csv"))
 
 
 ##################################################################################################
@@ -107,10 +101,10 @@ cat("\nLocal: nome \t ", dataset_name)
 
 ##################################################################################################
 # DON'T RUN -- it's only for test the code
-# ds <- datasets[29,]
-# dataset_name = ds$Name
-# number_dataset = ds$Id
-# FolderResults = "/dev/shm/teste"
+ # ds <- datasets[43,]
+ # dataset_name = ds$Name
+ # number_dataset = ds$Id
+ # folderResults = "/dev/shm/teste"
 ##################################################################################################
 
 
@@ -121,21 +115,22 @@ if(dir.exists(folderResults)==FALSE){
   dir.create(folderResults)
   cat("\n")
 }
-
+ 
+diretorios = directories(folderResults)
 
 
 ##################################################################################################
-cat("\nCopy FROM google drive \n")
-destino = paste(FolderRoot, "/Datasets/", dataset_name, sep="")
-origem = paste("cloud:Datasets/Originais/", dataset_name, ".arff", sep="")
-comando = paste("rclone -v copy ", origem, " ", destino, sep="")
-print(system(comando))
+#cat("\nCopy FROM google drive \n")
+#destino = paste(FolderRoot, "/Datasets/", dataset_name, sep="")
+#origem = paste("cloud:Datasets/Originais/", dataset_name, ".arff", sep="")
+#comando = paste("rclone -v copy ", origem, " ", destino, sep="")
+#print(system(comando))
 
 ##################################################################################################
-destino = paste(FolderRoot, "/Datasets/", dataset_name, sep="")
-origem = paste("cloud:Datasets/Originais/", dataset_name, ".xml", sep="")
-comando = paste("rclone -v copy ", origem, " ", destino, sep="")
-print(system(comando))
+#destino = paste(FolderRoot, "/Datasets/", dataset_name, sep="")
+#origem = paste("cloud:Datasets/Originais/", dataset_name, ".xml", sep="")
+#comando = paste("rclone -v copy ", origem, " ", destino, sep="")
+#print(system(comando))
 
 
 ##################################################################################################
@@ -150,18 +145,15 @@ cat("\n")
 # SAVE RESULTS
 ##################################################################################################
 Folder = paste(FolderRoot, "/Results/", dataset_name, sep="")
-print(Folder)
 setwd(Folder)
-save(timeBPM, file = paste(dataset_name, "-RunTimeFinal.rds", sep=""))
-save(res, file = paste(dataset_name, "-Results.rds", sep=""))
 
 
 ##################################################################################################
 # compress the results for later transfer to the dataset folder                                  #
 ##################################################################################################
-cat("\nCompress results\n")
-str3 = paste("tar -zcvf ", dataset_name, "-results.tar.gz ", Folder, sep="")
-print(system(str3))
+#cat("\nCompress results\n")
+#str3 = paste("tar -zcvf ", dataset_name, "-results.tar.gz ", Folder, sep="")
+#print(system(str3))
 
 
 ########################################################################################################################

@@ -28,15 +28,8 @@
 ##################################################################################################
 # Configures the workspace according to the operating system                                     #
 ##################################################################################################
-sistema = c(Sys.info())
-FolderRoot = ""
-if (sistema[1] == "Linux"){
-  FolderRoot = paste("/home/", sistema[7], "/BellPartitionsMultiLabel", sep="")
-} else {
-  FolderRoot = paste("C:/Users/", sistema[7], "/BellPartitionsMultiLabel", sep="")
-}
-setwd(FolderRoot)
-FolderScripts = paste(FolderRoot, "/R/", sep="")
+FolderRoot = "~/BellPartitionsMultiLabel"
+FolderScripts = paste(FolderRoot, "/R", sep="")
 
 
 
