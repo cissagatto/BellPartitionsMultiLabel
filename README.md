@@ -27,10 +27,7 @@ This code is executed in X-fold cross-validation. First, you have to obtain the 
 Confirms if the folder *utils* contains the following files: *Clus.jar*, *R_csv_2_arff.jar*, and *weka.jar*, and also the folder *lib* with *commons-math-1.0.jar*, *jgap.jar*, weka.jar and *Clus.jar.* Without these jars, the code not runs. 
 
 ### Step-3
-Place a copy of this code in _C:/Users/[username]/Local-Clus-TVT or _/home/[username]/Local-Clus-TVT. Our files are configured to obtain the paths of the folders from this path. You can change this in the code if you want.
-
-### Step-4
-A file called _datasets.csv_ must be in the *root project* folder. This file is used to read information about the datasets and they are used in the code. All 74 datasets available in *Cometa* are in this file. If you want to use another dataset, please, add the following information about the dataset in the file:
+A file called _datasets_original.csv_ must be in the *root project* folder. This file is used to read information about the datasets and they are used in the code. All 74 datasets available in *Cometa* are in this file. If you want to use another dataset, please, add the following information about the dataset in the file:
 
 _Id, Name, Domain, Labels, Instances, Attributes, Inputs, Labelsets, Single, Max freq, Card, Dens, MeanIR, Scumble, TCS, AttStart, AttEnd, LabelStart, LabelEnd, xn, yn, gridn_
 
@@ -58,8 +55,6 @@ Host: bionote | Kernel: 5.8.0-53-generic | x86_64 bits: 64 | Desktop: Gnome 3.36
 Topology: 6-Core | model: Intel Core i7-10750H | bits: 64 | type: MT MCP | L2 cache: 12.0 MiB | Speed: 800 MHz | min/max: 800/5000 MHz Core speeds (MHz): | 1: 800 | 2: 800 | 3: 800 | 4: 800 | 5: 800 | 6: 800 | 7: 800 | 8: 800 | 9: 800 | 10: 800 | 11: 800 | 12: 800 |
 
 Then the experiment was executed in a cluster at UFSCar.
-
-Important: we used the CLUS classifier in this experiment. This implies generating all physical ARFF training, validating, and testing files for each of the generated random partitions. Our code generates the partitions first in memory and then saves them to the HD. However, to avoid memory problems, immediately after saving to HD, the files are validated (or tested) and then deleted. Even so, make sure you have enough space on your HD and RAM for this procedure.
 
 
 # Run
@@ -124,11 +119,11 @@ This study is financed in part by the Coordenação de Aperfeiçoamento de Pesso
 
 [Linkedin](https://www.linkedin.com/company/27241216)
 
-[Instagram](https://www.instagram.com/professoracissa/)
+[Instagram](https://www.instagram.com/cissagatto)
 
-[Facebook](https://www.facebook.com/ProfessoraCissa/)
+[Facebook](https://www.facebook.com/cissagatto)
 
-[Twitter](https://twitter.com/professoracissa)
+[Twitter](https://twitter.com/cissagatto)
 
 
 # Report Error
