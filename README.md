@@ -30,6 +30,8 @@ _Id, Name, Domain, Labels, Instances, Attributes, Inputs, Labelsets, Single, Max
 
 The *Id* of the dataset is a mandatory parameter in the command line to run all code. The fields are used in a lot of internal functions. Please, make sure that this information is available before running the code. *xn* and *yn* correspond to a dimension of the quadrangular map for kohonen, and *gridn* is (xn * yn). Example: xn = 4, yn = 4, gridn = 16.
 
+*Please, make sure all the dependencies are installed (verify libraries.R). This code does not provide any installation of the packages.*
+
 
 ## Folder Structure
 
