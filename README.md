@@ -99,34 +99,18 @@ The results are store in the Reports folder, like the follow image
 
 <img src="https://github.com/cissagatto/BellPartitionsMultiLabel/blob/main/images/results.png" width="300">
 
+## DOWNLOAD RESULTS
+[Click here]
+
 ## Acknowledgment
 This study is financed in part by the Coordenação de Aperfeiçoamento de Pessoal de Nível Superior - Brasil (CAPES) - Finance Code 001
 
 ## Links
 
-[Post-Graduate Program in Computer Science](http://ppgcc.dc.ufscar.br/pt-br)
+| [Post-Graduate Program in Computer Science](http://ppgcc.dc.ufscar.br/pt-br) | [Computer Department](https://site.dc.ufscar.br/) |  [Biomal](http://www.biomal.ufscar.br/) | [CAPES](https://www.gov.br/capes/pt-br) | [Embarcados](https://www.embarcados.com.br/author/cissa/) | [Read Prensa](https://prensa.li/@cissa.gatto/) | [Linkedin Company](https://www.linkedin.com/company/27241216) | [Linkedin Profile](https://www.linkedin.com/in/elainececiliagatto/) | [Instagram](https://www.instagram.com/cissagatto) | [Facebook](https://www.facebook.com/cissagatto) | [Twitter](https://twitter.com/cissagatto) | [Twitch](https://www.twitch.tv/cissagatto) | [Youtube](https://www.youtube.com/CissaGatto) |
 
-[Biomal](http://www.biomal.ufscar.br/)
-
-[Computer Department](https://site.dc.ufscar.br/)
-
-[CAPES](https://www.gov.br/capes/pt-br)
-
-[Embarcados](https://www.embarcados.com.br/author/cissa/)
-
-[Linkedin](https://www.linkedin.com/in/elainececiliagatto/)
-
-[Linkedin](https://www.linkedin.com/company/27241216)
-
-[Instagram](https://www.instagram.com/cissagatto)
-
-[Facebook](https://www.facebook.com/cissagatto)
-
-[Twitter](https://twitter.com/cissagatto)
-
-
-# Report Error
-
+## Report Error
 Please contact me: elainececiliagatto@gmail.com
 
 # Thanks
+
