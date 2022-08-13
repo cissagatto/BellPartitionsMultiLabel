@@ -24,13 +24,43 @@ Put the datasets in the correct folder
 <img src="https://github.com/cissagatto/BellPartitionsMultiLabel/blob/main/images/datasets.png" width="300">
 
 ### Step-2
-A file called _datasets_original.csv_ must be in the *root project* folder. This file is used to read information about the datasets and they are used in the code. All 74 datasets available in *Cometa* are in this file. If you want to use another dataset, please, add the following information about the dataset in the file:
+A file called _datasets-original.csv_ must be in the *root project folder*. This file is used to read information about the datasets and they are used in the code. We have 90 multilabel datasets in this _.csv_ file. If you want to use another dataset, please, add the following information about the dataset in the file:
 
-_Id, Name, Domain, Labels, Instances, Attributes, Inputs, Labelsets, Single, Max freq, Card, Dens, MeanIR, Scumble, TCS, AttStart, AttEnd, LabelStart, LabelEnd, xn, yn, gridn_
 
-The *Id* of the dataset is a mandatory parameter in the command line to run all code. The fields are used in a lot of internal functions. Please, make sure that this information is available before running the code. *xn* and *yn* correspond to a dimension of the quadrangular map for kohonen, and *gridn* is (xn * yn). Example: xn = 4, yn = 4, gridn = 16.
+| Parameter    | Status    | Description                                           |
+|------------- |-----------|-------------------------------------------------------|
+| Id           | mandatory | Integer number to identify the dataset                |
+| Name         | mandatory | Dataset name (please follow the benchmark)            |
+| Domain       | optional  | Dataset domain                                        |
+| Instances    | mandatory | Total number of dataset instances                     |
+| Attributes   | mandatory | Total number of dataset attributes                    |
+| Labels       | mandatory | Total number of labels in the label space             |
+| Inputs       | mandatory | Total number of dataset input attributes              |
+| Cardinality  | optional  |                                                       |
+| Density      | optional  |                                                       |
+| Labelsets    | optional  |                                                       |
+| Single       | optional  |                                                       |
+| Max.freq     | optional  |                                                       |
+| Mean.IR      | optional  |                                                       | 
+| Scumble      | optional  |                                                       | 
+| TCS          | optional  |                                                       | 
+| AttStart     | mandatory | Column number where the attribute space begins*       | 
+| AttEnd       | mandatory | Column number where the attribute space ends          |
+| LabelStart   | mandatory | Column number where the label space begins            |
+| LabelEnd     | mandatory | Column number where the label space ends              |
+| Distinct     | optional  |                                                       |
+| xn           | mandatory | Value for Dimension X of the Kohonen map              | 
+| yn           | mandatory | Value for Dimension Y of the Kohonen map              |
+| gridn        | mandatory | X times Y value. Kohonen's map must be square         |
+| max.neigbors | mandatory | The maximum number of neighbors is given by LABELS -1 |
 
-*Please, make sure all the dependencies are installed (verify libraries.R). This code does not provide any installation of the packages.*
+
+* Because it is the first column the number is always 1.
+
+## STEP 3
+You need to have installed all the R packages required to execute this code on your machine. Check out which are needed in the file *libraries.R*. This code does not provide any type of automatic package installation! You can use the Conda environment that I created to perform this experiment. Below are the links to download the files.
+
+| [download txt](https://www.4shared.com/s/fUCVTl13zea) | [download yml](https://www.4shared.com/s/f8nOZyxj9iq) | [download yaml](https://www.4shared.com/s/fk5Io4faLiq) |
 
 
 ## Folder Structure
