@@ -70,8 +70,6 @@ You need to have installed all the R packages required to execute this code on y
 ## Software Requirements
 This code was develop in RStudio Version 1.4.1106 © 2009-2021 RStudio, PBC "Tiger Daylily" (2389bc24, 2021-02-11) for Ubuntu Bionic Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/5.12.8 Chrome/69.0.3497.128 Safari/537.36. The R Language version was: R version 4.1.0 (2021-05-18) -- "Camp Pontanezen" Copyright (C) 2021 The R Foundation for Statistical Computing Platform: x86_64-pc-linux-gnu (64-bit).
 
-**Please, make sure all the dependencies are installed (verify libraries.R). This code does not provide any installation of the packages.**
-
 ## Hardware Requirements
 This code may or may not be executed in parallel, however, it is highly recommended that you run it in parallel. The number of cores can be configured via the command line (number_cores). If number_cores = 1 the code will run sequentially. In our experiments, we used 10 cores. For reproducibility, we recommend that you also use ten cores. This code was tested with the birds dataset in the following machine:
 
@@ -130,7 +128,7 @@ The results are store in the Reports folder, like the follow image
 <img src="https://github.com/cissagatto/BellPartitionsMultiLabel/blob/main/images/results.png" width="300">
 
 ## DOWNLOAD RESULTS
-[Click here]
+[Click here](https://1drv.ms/u/s!Aq6SGcf6js1mrYo3IopBis_gUWxwdg?e=wFgQSa)
 
 ## Acknowledgment
 This study is financed in part by the Coordenação de Aperfeiçoamento de Pessoal de Nível Superior - Brasil (CAPES) - Finance Code 001
