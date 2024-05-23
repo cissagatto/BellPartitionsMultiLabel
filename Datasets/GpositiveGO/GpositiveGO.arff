@@ -1,4 +1,4 @@
-@relation 'GpositiveGO'
+@relation 'GpositiveGO: -C -4'
 @attribute Att1 numeric
 @attribute Att2 numeric
 @attribute Att3 numeric

@@ -1,72 +1,74 @@
-##################################################################################################
-# BELL PARTITIONS MULTILABEL CLASSIFICATION                                                      #
-# Copyright (C) 2021                                                                             #
-#                                                                                                #
-# This code is free software: you can redistribute it and/or modify it under the terms of the    #
-# GNU General Public License as published by the Free Software Foundation, either version 3 of   #  
-# the License, or (at your option) any later version. This code is distributed in the hope       #
-# that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of         #
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for    #
-# more details.                                                                                  #     
-#                                                                                                #
-# Elaine Cecilia Gatto | Prof. Dr. Ricardo Cerri | Prof. Dr. Mauri Ferrandin                     #
-# Federal University of Sao Carlos (UFSCar: https://www2.ufscar.br/) Campus Sao Carlos           #
-# Computer Department (DC: https://site.dc.ufscar.br/)                                           #
-# Program of Post Graduation in Computer Science (PPG-CC: http://ppgcc.dc.ufscar.br/)            #
-# Bioinformatics and Machine Learning Group (BIOMAL: http://www.biomal.ufscar.br/)               #
-#                                                                                                #
-##################################################################################################
+##############################################################################
+# BELL PARTITIONS MULTILABEL CLASSIFICATION
+# Copyright (C) 2021
+# 
+# This code is free software: you can redistribute it and/or modify it under
+# the terms of the # GNU General Public License as published by the Free
+# Software Foundation, either version 3 of the License, or (at your option)
+# later version. This code is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+# Public License for more details.                                                                                  #     
+#                                                                                                
+# Elaine Cecilia Gatto: Prof. Dr. Eng. PhD 
+# Ricardo Cerri: Prof. Dr.PhD 
+# Mauri Ferrandin: Prof. Dr. PhD 
+#
+# Federal University of Sao Carlos Campus Sao Carlos 
+# UFSCar: https://www2.ufscar.br/
+# 
+# Computer Department - DC: https://site.dc.ufscar.br/                                           
+# 
+# Program of Post Graduation in Computer Science 
+# PPG-CC: http://ppgcc.dc.ufscar.br/
+# 
+# Bioinformatics and Machine Learning Group
+# BIOMAL: http://www.biomal.ufscar.br/)
+#
+###############################################################################
 
-##################################################################################################
-# Script 1 - Libraries                                                                           #
-##################################################################################################
 
-##################################################################################################
-# Configures the workspace according to the operating system                                     #
-##################################################################################################
-
-##################################################################################################
-# Configures the workspace according to the operating system                                     #
-##################################################################################################
+##########################################################################
+# ROOTING FOLDER
+##########################################################################
 FolderRoot = "~/BellPartitionsMultiLabel"
-FolderScripts = paste(FolderRoot, "/R", sep="")
+FolderScripts =  "~/BellPartitionsMultiLabel/R"
 
 
-##################################################################################################
-# Runs for all datasets listed in the "datasets.csv" file                                        #
-# n_dataset: number of the dataset in the "datasets.csv"                                         #
-# number_cores: number of cores to paralell                                                      #
-# number_folds: number of folds for cross validation                                             # 
-##################################################################################################
-execute <- function(ds, number_dataset, folderResults){
+##########################################################################
+# Runs for all datasets listed in the "datasets.csv" file
+# n_dataset: number of the dataset in the "datasets.csv"
+# number_cores: number of cores to paralell
+# number_folds: number of folds for cross validation
+##########################################################################
+execute <- function(parameters){
   
-  cat("\n\n################################################################################################")
-  cat("\n# START                                                                                          #")
-  cat("\n##################################################################################################\n\n") 
+  cat("\n\n#############################################################")
+    cat("\n# START                                                     #")
+    cat("\n#############################################################\n\n") 
   
-  diretorios = directories(folderResults)
+  diretorios = directories(parameters$FolderResults)
   
   retorno = list()
   
-  cat("\n\n################################################################################################")
-  cat("\n# RUN: Get dataset information: ", number_dataset, "                                                  #")
-  dataset_name = ds$Name
-  cat("\nDataset: ", dataset_name)
+  cat("\n\n##############################################################")
+    cat("\n# RUN                                                        #")
+    cat("\n# Number Dataset: ", parameters$number.dataset, "            #")
+    cat("\n# Name Dataset: ", parameters$name.dataset, "                #")
+    cat("\n##############################################################\n\n") 
   
   # get the names labels
-  folder = paste(diretorios$FolderDatasets, "/", dataset_name, sep="")
+  folder = paste(diretorios$FolderDatasets, "/", parameters$name.dataset, sep="")
   setwd(folder)
-  nome = paste(folder, "/", dataset_name, ".arff", sep="")
+  nome = paste(folder, "/", parameters$name.dataset, ".arff", sep="")
   arquivo = data.frame(foreign::read.arff(nome))
-  namesLabels = c(colnames(arquivo[,ds$LabelStart:ds$LabelEnd]))
+  parameters$names.labels = c(colnames(arquivo[,parameters$dataset.info$LabelStart:parameters$dataset.info$LabelEnd]))
   
-  FolderR = paste(diretorios$folderResults, "/", dataset_name, sep="")
-  if(dir.exists(FolderR)==FALSE){
-    dir.create(FolderR)
-    print(FolderR)
-  }
-  
-  timeComPart = system.time(resPart <- partition(ds, dataset_name, namesLabels, FolderR))  
+  timeComPart = system.time(resPart <- partition(parameters))  
+  result_time <- t(data.matrix(timeComPart))
+  setwd(parameters$FolderResDataset)
+  write.csv(result_time, "runtime_run.csv")
+  cat("\n")
   
   retorno$partitions = resPart
   return(retorno)
@@ -79,7 +81,7 @@ execute <- function(ds, number_dataset, folderResults){
 }
 
 
-##################################################################################################
-# Please, any errors, contact us: elainececiliagatto@gmail.com                                   #
-# Thank you very much!                                                                           #
-##################################################################################################
+##########################################################################
+# Please, any errors, contact us: elainececiliagatto@gmail.com
+# Thank you very much!
+##########################################################################
